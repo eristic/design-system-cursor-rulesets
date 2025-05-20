@@ -1,0 +1,140 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Design System Components Documentation
+
+This document provides a comprehensive overview of all components available in the design system, their usage, and implementation details.
+
+## Core UI Components
+
+### Layout Components
+- **Aspect Ratio** (`aspect-ratio.tsx`): Maintains consistent width/height ratio for responsive elements
+- **Card** (`card.tsx`): Container component for grouping related content
+- **Separator** (`separator.tsx`): Visual divider between content sections
+- **Scroll Area** (`scroll-area.tsx`): Custom scrollable container with styled scrollbars
+
+### Navigation Components
+- **Breadcrumb** (`breadcrumb.tsx`): Navigation hierarchy indicator
+- **Navigation Menu** (`navigation-menu.tsx`): Main navigation component with dropdown support
+- **Menubar** (`menubar.tsx`): Horizontal menu bar with dropdown menus
+- **Pagination** (`pagination.tsx`): Page navigation controls
+- **Tabs** (`tabs.tsx`): Tabbed interface component
+
+### Form Components
+- **Button** (`button.tsx`): Primary action component with multiple variants
+- **Input** (`input.tsx`): Text input field
+- **Textarea** (`textarea.tsx`): Multi-line text input
+- **Select** (`select.tsx`): Dropdown selection component
+- **Checkbox** (`checkbox.tsx`): Boolean input control
+- **Radio Group** (`radio-group.tsx`): Single selection from multiple options
+- **Switch** (`switch.tsx`): Toggle switch component
+- **Form** (`form.tsx`): Form wrapper with validation support
+- **Input OTP** (`input-otp.tsx`): One-time password input component
+
+### Feedback Components
+- **Alert** (`alert.tsx`): Information, warning, or error messages
+- **Alert Dialog** (`alert-dialog.tsx`): Modal dialog for important confirmations
+- **Toast** (`toast.tsx`): Temporary notification messages
+- **Progress** (`progress.tsx`): Progress indicator
+- **Skeleton** (`skeleton.tsx`): Loading state placeholder
+
+### Overlay Components
+- **Dialog** (`dialog.tsx`): Modal dialog window
+- **Drawer** (`drawer.tsx`): Slide-out panel
+- **Popover** (`popover.tsx`): Floating content container
+- **Tooltip** (`tooltip.tsx`): Information on hover
+- **Hover Card** (`hover-card.tsx`): Rich content on hover
+- **Sheet** (`sheet.tsx`): Slide-out panel with multiple variants
+
+### Data Display Components
+- **Table** (`table.tsx`): Data grid component
+- **Avatar** (`avatar.tsx`): User profile image
+- **Badge** (`badge.tsx`): Status or count indicator
+- **Calendar** (`calendar.tsx`): Date picker component
+- **Chart** (`chart.tsx`): Data visualization component
+- **Carousel** (`carousel.tsx`): Image/content slider
+
+### Interactive Components
+- **Accordion** (`accordion.tsx`): Expandable/collapsible content sections
+- **Collapsible** (`collapsible.tsx`): Simple expandable content
+- **Command** (`command.tsx`): Command palette interface
+- **Context Menu** (`context-menu.tsx`): Right-click menu
+- **Dropdown Menu** (`dropdown-menu.tsx`): Dropdown navigation
+- **Resizable** (`resizable.tsx`): Resizable container
+- **Slider** (`slider.tsx`): Range selection control
+- **Toggle** (`toggle.tsx`): On/off switch
+- **Toggle Group** (`toggle-group.tsx`): Group of related toggles
+
+## Application-Specific Components
+
+### Layout Components
+- **Site Header** (`site-header.tsx`): Main application header
+- **Site Footer** (`site-footer.tsx`): Main application footer
+- **Hero Section** (`hero-section.tsx`): Landing page hero component
+
+### Content Components
+- **Portfolio Card** (`portfolio-card.tsx`): Project showcase card
+- **Portfolio Filter** (`portfolio-filter.tsx`): Portfolio filtering controls
+- **Pricing Card** (`pricing-card.tsx`): Pricing plan display
+- **Service Card** (`service-card.tsx`): Service offering display
+- **Testimonial Card** (`testimonial-card.tsx`): Customer testimonial display
+- **News Card** (`news-card.tsx`): News article preview
+
+### Interactive Components
+- **Contact Form** (`contact-form.tsx`): Contact information submission form
+- **Theme Toggle** (`theme-toggle.tsx`): Dark/light mode switcher
+
+## Usage Guidelines
+
+1. **Component Import**
+   ```tsx
+   import { ComponentName } from "@/components/ui/component-name"
+   ```
+
+2. **Styling**
+   - Components use Tailwind CSS for styling
+   - Custom styles can be added through className prop
+   - Theme customization available through theme-provider
+
+3. **Accessibility**
+   - All components follow ARIA guidelines
+   - Keyboard navigation support
+   - Screen reader friendly
+
+4. **Responsive Design**
+   - Mobile-first approach
+   - Responsive breakpoints defined in tailwind.config.ts
+   - Fluid layouts using relative units
+
+## Best Practices
+
+1. **Component Composition**
+   - Use composition over inheritance
+   - Break down complex components into smaller, reusable pieces
+   - Maintain single responsibility principle
+
+2. **State Management**
+   - Use React hooks for local state
+   - Consider context for shared state
+   - Implement proper loading and error states
+
+3. **Performance**
+   - Implement proper memoization
+   - Lazy load when appropriate
+   - Optimize bundle size
+
+4. **Testing**
+   - Write unit tests for components
+   - Test accessibility
+   - Test responsive behavior
+
+## Theme Customization
+
+The design system supports theme customization through the theme-provider component. Available themes:
+- Light
+- Dark
+- System (follows OS preference)
+
+Custom themes can be added by extending the theme configuration in the theme-provider component.

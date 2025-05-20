@@ -1,0 +1,250 @@
+---
+description: Identfy and document the components in this project with storybook
+globs: 
+alwaysApply: false
+---
+# Storybook with Tailwind CSS and shadcn/ui Setup Guide
+
+## Overview
+This guide explains how to set up and use Storybook with Tailwind CSS and shadcn/ui components in your project.
+
+## Installation
+
+1. Install Storybook and required dependencies:
+```bash
+npx storybook@latest init
+npm install -D @storybook/addon-styling
+```
+
+2. Configure Tailwind CSS in Storybook:
+- Create or update `.storybook/main.js`:
+```javascript
+module.exports = {
+  stories: ['../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
+    {
+      name: '@storybook/addon-styling',
+      options: {
+        postCss: true,
+      },
+    },
+  ],
+  framework: {
+    name: '@storybook/nextjs',
+    options: {},
+  },
+};
+```
+
+3. Create `.storybook/preview.js`:
+```javascript
+import '../src/app/globals.css'; // Import your global styles
+
+export const parameters = {
+  actions: { argTypesRegex: "^on[A-Z].*" },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
+    },
+  },
+};
+```
+
+## Creating Stories
+
+1. Create a story file next to your component (e.g., `Button.stories.tsx`):
+```typescript
+import type { Meta, StoryObj } from '@storybook/react';
+import { Button } from './Button';
+
+const meta: Meta<typeof Button> = {
+  title: 'Components/Button',
+  component: Button,
+  tags: ['autodocs'],
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link'],
+    },
+    size: {
+      control: 'select',
+      options: ['default', 'sm', 'lg', 'icon'],
+    },
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof Button>;
+
+export const Primary: Story = {
+  args: {
+    variant: 'default',
+    children: 'Button',
+  },
+};
+```
+
+## Best Practices
+
+1. **Component Organization**:
+   - Group related components in the same directory
+   - Use clear, descriptive names for stories
+   - Follow the pattern: `ComponentName.stories.tsx`
+
+2. **Story Structure**:
+   - Use the Component Story Format (CSF)
+   - Include all possible variants of your component
+   - Document props using `argTypes`
+   - Use `tags: ['autodocs']` for automatic documentation
+
+3. **Styling**:
+   - Import global styles in `.storybook/preview.js`
+   - Use Tailwind classes directly in your components
+   - Test different themes and dark mode if applicable
+
+4. **Documentation**:
+   - Add descriptions using JSDoc comments
+   - Use the `parameters` object to add custom documentation
+   - Include usage examples and code snippets
+
+## Example Story Structure
+
+```typescript
+// Component.stories.tsx
+import type { Meta, StoryObj } from '@storybook/react';
+import { Component } from './Component';
+
+const meta: Meta<typeof Component> = {
+  title: 'Category/Component',
+  component: Component,
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component: 'Description of your component',
+      },
+    },
+  },
+  argTypes: {
+    // Define your component's props here
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof Component>;
+
+// Base story
+export const Default: Story = {
+  args: {
+    // Default props
+  },
+};
+
+// Variant stories
+export const Variant: Story = {
+  args: {
+    // Variant props
+  },
+};
+```
+
+## Running Storybook
+
+```bash
+npm run storybook
+```
+
+This will start Storybook on `http://localhost:6006` by default.
+
+## Additional Resources
+
+- [Storybook Documentation](mdc:https:/storybook.js.org/docs)
+- [Tailwind CSS Documentation](mdc:https:/tailwindcss.com/docs)
+- [shadcn/ui Documentation](mdc:https:/ui.shadcn.com/docs)
+
+## Automatic Component Documentation
+
+To automatically document all components in your project:
+
+1. **Component Discovery**:
+   - Place all component stories in the `stories` directory
+   - Follow the naming convention: `ComponentName.stories.tsx`
+   - Group stories by category in the title (e.g., 'UI/Button', 'Components/TestimonialCard')
+
+2. **Story Generation Pattern**:
+```typescript
+// Template for new component stories
+import type { Meta, StoryObj } from '@storybook/react';
+import { ComponentName } from '../components/ComponentName';
+
+const meta: Meta<typeof ComponentName> = {
+  title: 'Category/ComponentName',
+  component: ComponentName,
+  tags: ['autodocs'],
+  argTypes: {
+    // Add all component props here
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: 'Component description',
+      },
+    },
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof ComponentName>;
+
+// Default story
+export const Default: Story = {
+  args: {
+    // Default props
+  },
+};
+
+// Add variant stories as needed
+```
+
+3. **Component Categories**:
+   - UI Components: Basic building blocks (Button, Card, Input, etc.)
+   - Layout Components: Structural components (Grid, Container, etc.)
+   - Feature Components: Business logic components (TestimonialCard, PortfolioCard, etc.)
+   - Form Components: Form-related components (Form, Input, Select, etc.)
+
+4. **Documentation Standards**:
+   - Include component description
+   - Document all props in argTypes
+   - Show multiple variants/use cases
+   - Add interactive controls where applicable
+   - Include code examples
+
+5. **Component Organization**:
+   - Group related components in the same category
+   - Use consistent naming patterns
+   - Maintain a clear hierarchy in the Storybook sidebar
+
+6. **Testing Components**:
+   - Include different states (hover, focus, disabled)
+   - Test with various content lengths
+   - Show responsive behavior
+   - Demonstrate accessibility features
+
+7. **Best Practices for New Components**:
+   - Create story file alongside component
+   - Include all possible variants
+   - Document props and their types
+   - Add usage examples
+   - Include accessibility considerations
+
+8. **Maintenance**:
+   - Keep stories up to date with component changes
+   - Add new variants as they're developed
+   - Update documentation when props change
+   - Remove deprecated stories
+
+Remember to run `npm run storybook` to view and test your component documentation.
