@@ -77,6 +77,11 @@ src/
       Card.test.tsx
 ```
 
+## Styles
+- CSS styles of the components should be added as .css files
+- The current styles are made in TailwindCSS
+- Use the docs at https://tailwindcss.com/docs/ to abstract the Tailwind styles into Storybook
+
 ## Running Storybook
 - Development: `npm run storybook`
 - Build: `npm run build-storybook`
