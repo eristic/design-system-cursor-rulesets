@@ -1,0 +1,88 @@
+---
+description: Create storybook documentation
+globs: 
+alwaysApply: false
+---
+# Storybook Documentation
+
+## Overview
+Storybook is a frontend workshop for building UI components and pages in isolation. It helps develop and share component states and edge cases without running the entire application.
+
+## Key Concepts
+
+### Stories
+- Stories capture the rendered state of UI components
+- Each component can have multiple stories representing different states
+- Stories are written in Component Story Format (CSF)
+- Stories should be placed alongside their components in a `.stories.tsx` file
+
+### Documentation
+- Storybook automatically generates documentation from your components
+- Use Doc Blocks to add custom documentation
+- Documentation can include:
+  - Component descriptions
+  - Props tables
+  - Usage examples
+  - Design guidelines
+
+### Testing
+- Stories serve as a foundation for UI testing
+- Supports multiple testing approaches:
+  - Component tests
+  - Visual tests
+  - Accessibility tests
+  - Snapshot tests
+
+## Best Practices
+
+### Story Organization
+1. Group stories by component
+2. Use clear, descriptive names for stories
+3. Include stories for:
+   - Default state
+   - Common variations
+   - Edge cases
+   - Interactive states
+
+### Component Documentation
+1. Add JSDoc comments to components
+2. Document props using TypeScript interfaces
+3. Include usage examples
+4. Add design guidelines when applicable
+
+### Testing Strategy
+1. Write stories before implementing components
+2. Use the Play function for interaction testing
+3. Implement visual regression testing
+4. Add accessibility testing
+
+## Common Addons
+- Actions: Track component events
+- Controls: Dynamically modify component props
+- Viewport: Test responsive designs
+- Accessibility: Test a11y compliance
+- Backgrounds: Test components on different backgrounds
+
+## File Structure
+```
+src/
+  components/
+    Button/
+      Button.tsx
+      Button.stories.tsx
+      Button.test.tsx
+    Card/
+      Card.tsx
+      Card.stories.tsx
+      Card.test.tsx
+```
+
+## Running Storybook
+- Development: `npm run storybook`
+- Build: `npm run build-storybook`
+- Test: `npm run test-storybook`
+
+## Resources
+- [Storybook Documentation](mdc:https:/storybook.js.org/docs)
+- [Component Story Format](mdc:https:/storybook.js.org/docs/react/api/csf)
+- [Testing Documentation](mdc:https:/storybook.js.org/docs/react/writing-tests/introduction)
