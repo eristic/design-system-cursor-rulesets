@@ -6,21 +6,27 @@ This directory contains detailed documentation for all components in the design 
 
 Located in `core-ui/`, these are the fundamental building blocks of the design system:
 
-- **Layout Components** (`layout/`): Basic structural components
-- **Navigation Components** (`navigation/`): Navigation and menu components
 - **Form Components** (`form/`): Input and form control components
-- **Feedback Components** (`feedback/`): Alert and notification components
-- **Overlay Components** (`overlay/`): Modal and popup components
-- **Data Display Components** (`data-display/`): Data visualization components
 - **Interactive Components** (`interactive/`): Interactive UI elements
+- **Layout Components** (`layout/`): Basic structural components
 
 ## Application-Specific Components
 
 Located in `application-specific/`, these are components built for specific use cases:
 
-- **Layout Components** (`layout/`): Page structure components
-- **Content Components** (`content/`): Content display components
-- **Interactive Components** (`interactive/`): Application-specific interactive elements
+- Portfolio Card
+- Pricing Card
+- Service Card
+
+## Design System Tokens
+
+Located in `design-tokens/`, these are components built for specific use cases:
+
+- Border radius
+- Colors
+- Shadows
+- Spacing
+- Typography
 
 ## Documentation Structure
 

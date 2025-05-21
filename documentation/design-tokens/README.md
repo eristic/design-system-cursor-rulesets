@@ -9,8 +9,6 @@ This directory contains the design tokens that define the visual language of the
 - [Spacing](./spacing.md)
 - [Shadows](./shadows.md)
 - [Border Radius](./border-radius.md)
-- [Animation](./animation.md)
-- [Z-Index](./z-index.md)
 
 ## Usage
 
