@@ -106,52 +106,6 @@ export const Primary: Story = {
    - Use Tailwind classes directly in your components
    - Test different themes and dark mode if applicable
 
-4. **Documentation**:
-   - Add descriptions using JSDoc comments
-   - Use the `parameters` object to add custom documentation
-   - Include usage examples and code snippets
-
-## Example Story Structure
-
-```typescript
-// Component.stories.tsx
-import type { Meta, StoryObj } from '@storybook/react';
-import { Component } from './Component';
-
-const meta: Meta<typeof Component> = {
-  title: 'Category/Component',
-  component: Component,
-  tags: ['autodocs'],
-  parameters: {
-    docs: {
-      description: {
-        component: 'Description of your component',
-      },
-    },
-  },
-  argTypes: {
-    // Define your component's props here
-  },
-};
-
-export default meta;
-type Story = StoryObj<typeof Component>;
-
-// Base story
-export const Default: Story = {
-  args: {
-    // Default props
-  },
-};
-
-// Variant stories
-export const Variant: Story = {
-  args: {
-    // Variant props
-  },
-};
-```
-
 ## Running Storybook
 
 ```bash
@@ -166,9 +120,9 @@ This will start Storybook on `http://localhost:6006` by default.
 - [Tailwind CSS Documentation](mdc:https:/tailwindcss.com/docs)
 - [shadcn/ui Documentation](mdc:https:/ui.shadcn.com/docs)
 
-## Automatic Component Documentation
+## Component Documentation
 
-To automatically document all components in your project:
+To document all components in your project:
 
 1. **Component Discovery**:
    - Place all component stories in the `stories` directory
